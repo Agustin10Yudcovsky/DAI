@@ -1,7 +1,7 @@
 import React from 'react';
-import Cita from './Citas.jsx';
+import Citas from './Citas.jsx';
 
-function ListCitas({ listaCitas, onDelete }) {
+function List_citas1({ listaCitas, onDelete }) {
   if (!Array.isArray(listaCitas)) {
     listaCitas = [listaCitas];
   }
@@ -10,7 +10,7 @@ function ListCitas({ listaCitas, onDelete }) {
     <div className="lista-citas">
       <p id='arreglo'>a</p>
       {listaCitas.map((cita, index) => (
-        <Cita
+        <Citas
           key={index}
           mascota={cita.nombreMascota}
           dueno={cita.nombreDueno}
@@ -24,4 +24,4 @@ function ListCitas({ listaCitas, onDelete }) {
   );
 }
 
-export default ListCitas;
+export default List_citas1;

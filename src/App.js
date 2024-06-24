@@ -1,23 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+import Form from './components/Form.jsx';
+import ListadoCitas from './components/List_citas1.jsx';
 
 function App() {
+  const [citas, setCitas] = useState([]);
+
+  const agregarCita = (nuevaCita) => {
+    setCitas([...citas, nuevaCita]);
+  };
+
+  const eliminarCita = (index) => {
+    const nuevasCitas = [...citas];
+    nuevasCitas.splice(index, 1);
+    setCitas(nuevasCitas);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='all'>
+      <h1>Citas veterinaria</h1>
+      <div className='App'>
+      <Form onAddCita={agregarCita}/>
+      <ListadoCitas listaCitas={citas} onDelete={eliminarCita}/>
+      </div>
     </div>
   );
 }
